@@ -1,13 +1,13 @@
 from tkinter import ttk
 from tkinter import *
 
-class Haze:
+class DividirSinCero:
     def __init__(self, window):
         # Inicio
 
         #ancho y alto de la ventana
-        ancho = 800
-        alto = 600
+        ancho = 400
+        alto = 400
 
         #Asignamos la ventana a una variable de la clase llamada wind
         self.wind = window
@@ -19,14 +19,14 @@ class Haze:
         self.wind.columnconfigure(0, weight=1)
 
         #Damos un titulo a la ventana
-        self.wind.title('División')
+        self.wind.title('División sin 0')
 
         #Creamos un contenedor
-        frame = LabelFrame(self.wind, text = 'División de 2 valores que no contengan 0', background= "pink")
-        frame.grid(row = 0, column = 0, columnspan = 3, pady = 20)
+        frame = LabelFrame(self.wind, text = 'División de 2 valores que no contengan 0', background= "#3c046d", fg = 'white')
+        frame.grid(row = 0, column = 0, columnspan = 4, pady = 40)
 
         #Creamos un etiqueta
-        Label(frame, text = 'Ingrese su Primer Número: ', background="pink").grid(row = 1, column = 0)
+        Label(frame, text = 'Ingrese el Primer Número: ', background="#3c046d", fg='white').grid(row = 1, column = 0)
 
         #Creamos un input donde ingresar valores
         self.var1 = Entry(frame)
@@ -34,14 +34,14 @@ class Haze:
         self.var1.grid(row = 1, column = 1)
 
         #De la misma manera que la forma anterior una etiqueta y un campo input para ingresar valores
-        Label(frame, text = 'Ingrese su Segundo Número: ', background ="pink").grid(row = 2, column = 0)
+        Label(frame, text = 'Ingrese el Segundo Número: ', background ="#3c046d",fg = 'White').grid(row = 2, column = 0)
         self.var2 = Entry(frame)
         self.var2.grid(row = 2, column = 1)
 
         #Creamos un botón para ejecutar la Division
-        Button(frame, text = 'Presione para Dividir', background ="lightblue", command = self.dividir).grid(row = 3, columnspan = 2, sticky = W + E)
+        Button(frame, text = 'Dividir', background ="#4b3c84",fg = 'white', command = self.dividir).grid(row = 3, columnspan = 2, sticky = W + E)
         #Colocamos un área para mensajes
-        self.message = Label(text = '', fg = 'blue', background= "pink")
+        self.message = Label(text = '', fg = 'white', background= "#4b3c84")
         self.message.grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
 
     #Creamos una función para validar que los campos no esten en blanco
@@ -57,9 +57,9 @@ class Haze:
                 resultado = float( self.var1.get() ) / float( self.var2.get() )
                 resultado2 = float( self.var1.get() ) % float( self.var2.get())
                 if(resultado2 == 0):
-                    self.message['text'] = 'La division realizada es exacta y su cociente es: {}'.format(resultado)
+                    self.message['text'] = 'La division es exacta,  su cociente es: {}'.format(resultado)
                 else:
-                    self.message['text'] = 'La division realizada es inexacta y su cociente es: {}'.format(resultado)
+                    self.message['text'] = 'La division es inexacta, su cociente es: {}'.format(resultado)
             else:
                 self.message['text'] = 'los campos son requeridos'                        
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     window = Tk()
 
     #En la variable app guardamos la clase Desk y le enviamos como parametro la ventana 
-    app = Hazel(window)
+    app = DividirSinCero(window)
 
     #Ejecutamos un mainloop para que se ejecute la ventana
     window.mainloop()

@@ -55,13 +55,11 @@ class Dividir:
         if self.validation():
             resultado = int( self.var1.get() ) / int( self.var2.get() )
             resultado2 = int( self.var1.get() ) % int( self.var2.get())
-            resultado3 = int( format(int(resultado)) ) * int( self.var2.get() )
-            resultado4 = int( self.var1.get()) - int( format(int(resultado3)))
             if(resultado2 == 0):
                 self.message['text'] = 'La división realizada es exacta y su cociente es: {}'.format(resultado)
             else:
                 self.message['text'] = 'La división realizada es inexacta su cociente es: {}'.format(int(resultado)) 
-                self.message2['text'] = 'Su residuo es: {}'.format(resultado4)
+                self.message2['text'] = 'Su residuo es: {}'.format(resultado2)
         else:
             self.message['text'] = 'los campos son necesarios.'                        
             
